@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ok fen</title>
+    <script>
+       function invokeMethod(methodName) {
+        EwWebViewChannel.postMessage(JSON.stringify({
+            'method' : methodName,
+            'params' : {
+                'id' : 123,
+                'name' : 'hehe'
+            }
+        }))
+       }
+
+       function setText(text) {
+            let element = document.getElementById('my-text')
+            element.innerHTML = text
+       }
+    </script>
+</head>
+<body>
+    <button onclick="invokeMethod('displayChatScreen')">invoke</button>
+    <div id="my-text"></div>
+</body>
+</html>
